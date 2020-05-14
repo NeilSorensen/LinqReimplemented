@@ -8,6 +8,11 @@ This exercise follows Jon Skeet's set of [blog posts](https://codeblog.jonskeet.
 The return type of a method that has a `yield return` must be either `IEnumerable<T>` or `IEnumerable`.
 Typically, `yield return` is used in a `foreach` block, but you can also use a succession of `yield return` statements to create an `IEnumerable` that lazily generates items.
 
+## Testing for lazy evaluation
+
+One of the important characteristics of many LINQ methods is lazy evaluation.
+To enable you to write tests that verify that your implementation correctly implements lazy evaluation, the C# code includes a TestHelper with a static `AssertDeferred` method.
+
 ## The methods
 
 This is an incomplete list of LINQ methods.

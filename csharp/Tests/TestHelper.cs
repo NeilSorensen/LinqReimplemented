@@ -13,7 +13,7 @@ namespace LinqReimplemented.Tests
     {
         public IEnumerator<T> GetEnumerator()
         {
-            throw new InvalidOperationException();
+            throw new InvalidOperationException("Execution was not deferred");
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -24,6 +24,18 @@ namespace LinqReimplemented.Tests
 
     public static class TestHelper 
     {
+        /// <summary>
+        /// Asserts that a function is executed lazily
+        /// </summary>
+        /// <param name="deferredFunction">
+        /// A predicate that invokes the function that should be evaluated lazily
+        /// </param>
+        /// <example>
+        /// The following would test that the `where` function is executed lazily
+        /// <code>
+        /// TestHelper.AssertDeferred<int>(source => source.Where(x => x > 5));
+        /// </code>
+        /// </example>
         public static void AssertDeferred<T>(
             Func<IEnumerable<T>, IEnumerable<T>> deferredFunction)
         {
