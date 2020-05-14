@@ -23,5 +23,4 @@ Each one includes a description of the requirements that need to be tested to pr
 * [Range](range.md)
 * [Aggregate](aggregate.md)
 * [Distinct](distinct.md)
-* [GroupBy](groupby.md)
 * [Zip](zip.md)
